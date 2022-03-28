@@ -3,6 +3,15 @@ using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
 
+/*
+ * to install packages:
+ * 1. go to the solution explorer on the right side of the screen
+ * 2. right click on solution 'gui'
+ * 3. press "manage nuget packages for solution"
+ * 4. search for the packages
+ * needed packages:
+ * Newtonsoft.Json
+ */
 namespace gui.Resources
 {
     public class SceneVariables
