@@ -22,7 +22,7 @@ namespace gui
             //run_cmd(@"C:\Users\RLB\Desktop\Cognata\Python\DevelopScripts\AccessibleScripts\try.py");
 
             //run_cmd(@"C:\Users\RLB\Desktop\Cognata\Python\DevelopScripts\SceneScripts\ScenarioGeneratorSelect.py");
-            run_cmd(@"C:\Users\RLB\Desktop\Cognata\Python\DevelopScripts\AccessibleScripts\AnalysingRuns.py");
+            run_cmd(@"C:\Users\Eylon\Desktop\Cognata\engine\PYTHON\SCRIPTS\AnalysingRuns.py");
             Car_choosing_comboBox.Items.Add("Hummer");   //adding items to the dropdown
             Car_choosing_comboBox.Items.Add("Oshkosh");
             Car_choosing_comboBox.Items.Add("Sedan");
@@ -51,8 +51,7 @@ namespace gui
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
-      (e.KeyChar != '.'))
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
             {
                 e.Handled = true;
             }
@@ -87,9 +86,8 @@ namespace gui
         private void Analysis_results_button_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form2 f2 = new Form2();
+            Form2 f2 = new Form2(this);
             f2.Show();
-            // Hide();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -111,16 +109,6 @@ namespace gui
                 CreateNoWindow = false
             };
             p.Start();*/
-
-            //string output = p.StandardOutput.ReadToEnd();
-            //p.WaitForExit();
-
-            //p.WaitForInputIdle();
-
-            //Console.WriteLine(output);
-
-            //Console.ReadLine();
-
         }
     }
 }

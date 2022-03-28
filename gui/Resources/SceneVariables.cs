@@ -24,9 +24,9 @@ namespace gui.Resources
         public IDictionary<string, bool> unique_columns { get; set; }      
         public static void createFile(SceneVariables sceneVariables, string fileName)
         {
+
             string jsonString = JsonConvert.SerializeObject(sceneVariables);
             File.WriteAllText(fileName, jsonString);
         }  
     }
-    
 }

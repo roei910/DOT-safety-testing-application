@@ -30,7 +30,6 @@
         {
             this.FIle_name_title = new System.Windows.Forms.Label();
             this.file_name_textBox = new System.Windows.Forms.TextBox();
-            this.Close_button = new System.Windows.Forms.Button();
             this.Main_menu_button = new System.Windows.Forms.Button();
             this.Save_button = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -55,18 +54,6 @@
             this.file_name_textBox.Name = "file_name_textBox";
             this.file_name_textBox.Size = new System.Drawing.Size(269, 25);
             this.file_name_textBox.TabIndex = 1;
-            // 
-            // Close_button
-            // 
-            this.Close_button.BackColor = System.Drawing.Color.PowderBlue;
-            this.Close_button.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Close_button.Location = new System.Drawing.Point(807, 380);
-            this.Close_button.Name = "Close_button";
-            this.Close_button.Size = new System.Drawing.Size(60, 28);
-            this.Close_button.TabIndex = 2;
-            this.Close_button.Text = "Close";
-            this.Close_button.UseVisualStyleBackColor = false;
-            this.Close_button.Click += new System.EventHandler(this.Close_button_Click);
             // 
             // Main_menu_button
             // 
@@ -113,11 +100,11 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.Save_button);
             this.Controls.Add(this.Main_menu_button);
-            this.Controls.Add(this.Close_button);
             this.Controls.Add(this.file_name_textBox);
             this.Controls.Add(this.FIle_name_title);
             this.Name = "Form2";
             this.Text = "Form2";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form2_FormClosing);
             this.Load += new System.EventHandler(this.Form2_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -128,7 +115,6 @@
 
         private System.Windows.Forms.Label FIle_name_title;
         private System.Windows.Forms.TextBox file_name_textBox;
-        private System.Windows.Forms.Button Close_button;
         private System.Windows.Forms.Button Main_menu_button;
         private System.Windows.Forms.Button Save_button;
         private System.Windows.Forms.Button button1;
