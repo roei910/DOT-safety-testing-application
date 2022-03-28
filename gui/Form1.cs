@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Diagnostics;
 using System.Threading;
-
+using gui.Resources;
 
 namespace gui
 {
@@ -27,6 +27,25 @@ namespace gui
             Car_choosing_comboBox.Items.Add("Oshkosh");
             Car_choosing_comboBox.Items.Add("Sedan");
 
+            var sceneVariables = new SceneVariables
+            {
+                n_runs = 10,
+                groups = 2,
+                df_name = "",
+                scene_script_name = "MisradHatahbura",
+                scene_id = "622774b6a27018002fcce857",
+                unique_columns = new Dictionary<string, bool>(){
+                    {"AVGPositionInLaneFrame", false},
+                    {"STDdevFrame", false },
+                    {"AVGPositionInLaneScenario", false},
+                    {"MinPositionInLane", false },
+                    {"MaxPositionInLane", false },
+                    {"PassingPosesInLane", false }
+                }
+            };
+            string fileName = "sceneVariables.json";
+
+            SceneVariables.createFile(sceneVariables, fileName);
 
         }
 
@@ -80,6 +99,7 @@ namespace gui
 
         private void run_cmd(string fileName)
         {
+            /*
             Process p = new Process();
             //p.StartInfo = new ProcessStartInfo(@"C:\Users\RLB\anaconda3\envs\CognataPackEnv\python.exe", fileName)
             String python = @"C:\Python39\python.exe";
@@ -90,7 +110,7 @@ namespace gui
                 UseShellExecute = false,
                 CreateNoWindow = false
             };
-            p.Start();
+            p.Start();*/
 
             //string output = p.StandardOutput.ReadToEnd();
             //p.WaitForExit();
