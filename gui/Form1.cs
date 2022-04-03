@@ -21,6 +21,10 @@ namespace gui
             InitializeComponent();
             //run_cmd(@"C:\Users\RLB\Desktop\Cognata\Python\DevelopScripts\AccessibleScripts\try.py");
 
+
+
+
+
             //run_cmd(@"C:\Users\RLB\Desktop\Cognata\Python\DevelopScripts\SceneScripts\ScenarioGeneratorSelect.py");
             run_cmd(@"C:\Users\Eylon\Desktop\Cognata\engine\PYTHON\SCRIPTS\AnalysingRuns.py");
             Car_choosing_comboBox.Items.Add("Hummer");   //adding items to the dropdown
