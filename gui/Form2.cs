@@ -19,11 +19,6 @@ namespace gui
             InitializeComponent();
         }
 
-        private void Form2_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void Main_menu_button_Click(object sender, EventArgs e)
         {
             this.Hide();
