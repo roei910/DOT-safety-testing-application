@@ -19,7 +19,7 @@ namespace gui
         public Form1()
         {
             InitializeComponent();
-            initialize_combobox_items();
+            initialize_items();
         }
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
@@ -75,10 +75,14 @@ namespace gui
 
         private void start_scenario()
         {
-            create_scene_variables();
+            create_scene_variables();//create scene variables file
+            //start start_engine from the directory
             ProcessStartInfo processStartInfo = new ProcessStartInfo();
             processStartInfo.FileName = @"C:\Users\rlbsimteamq\Desktop\Analyse\engine\start_engine.bat";
             processStartInfo.WorkingDirectory = @"C:\Users\rlbsimteamq\Desktop\Analyse";
+            processStartInfo.CreateNoWindow = true;
+            processStartInfo.RedirectStandardOutput = true;
+            processStartInfo.UseShellExecute = false;
             Process.Start(processStartInfo);
         }
 
@@ -105,7 +109,7 @@ namespace gui
             SceneVariables.createFile(sceneVariables, @"C:\Users\rlbsimteamq\Desktop\Analyse\engine", fileName);
         }
 
-        private void initialize_combobox_items()
+        private void initialize_items()
         {
             Car_choosing_comboBox.Items.Add("Hummer");   //adding items to the dropdown
             Car_choosing_comboBox.Items.Add("Oshkosh");
