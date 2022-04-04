@@ -19,38 +19,7 @@ namespace gui
         public Form1()
         {
             InitializeComponent();
-            //run_cmd(@"C:\Users\RLB\Desktop\Cognata\Python\DevelopScripts\AccessibleScripts\try.py");
-
-
-
-
-
-            //run_cmd(@"C:\Users\RLB\Desktop\Cognata\Python\DevelopScripts\SceneScripts\ScenarioGeneratorSelect.py");
-            run_cmd(@"C:\Users\Eylon\Desktop\Cognata\engine\PYTHON\SCRIPTS\AnalysingRuns.py");
-            Car_choosing_comboBox.Items.Add("Hummer");   //adding items to the dropdown
-            Car_choosing_comboBox.Items.Add("Oshkosh");
-            Car_choosing_comboBox.Items.Add("Sedan");
-
-            var sceneVariables = new SceneVariables
-            {
-                n_runs = 10,
-                groups = 2,
-                df_name = "",
-                scene_script_name = "MisradHatahbura",
-                scene_id = "622774b6a27018002fcce857",
-                unique_columns = new Dictionary<string, bool>(){
-                    {"AVGPositionInLaneFrame", false},
-                    {"STDdevFrame", false },
-                    {"AVGPositionInLaneScenario", false},
-                    {"MinPositionInLane", false },
-                    {"MaxPositionInLane", false },
-                    {"PassingPosesInLane", false }
-                }
-            };
-            string fileName = "sceneVariables.json";
-
-            SceneVariables.createFile(sceneVariables, fileName);
-
+            initialize_combobox_items();
         }
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
@@ -99,20 +68,48 @@ namespace gui
             panel1.BackColor = Color.FromArgb(100, 0, 0, 0);
         }
 
-        private void run_cmd(string fileName)
+        private void button1_Click(object sender, EventArgs e)
         {
-            /*
-            Process p = new Process();
-            //p.StartInfo = new ProcessStartInfo(@"C:\Users\RLB\anaconda3\envs\CognataPackEnv\python.exe", fileName)
-            String python = @"C:\Python39\python.exe";
-            Console.WriteLine("running cmd: " + python + " " + fileName);
-            p.StartInfo = new ProcessStartInfo(python, fileName)
+            start_scenario();
+        }
+
+        private void start_scenario()
+        {
+            create_scene_variables();
+            ProcessStartInfo processStartInfo = new ProcessStartInfo();
+            processStartInfo.FileName = @"C:\Users\rlbsimteamq\Desktop\Analyse\engine\start_engine.bat";
+            processStartInfo.WorkingDirectory = @"C:\Users\rlbsimteamq\Desktop\Analyse";
+            Process.Start(processStartInfo);
+        }
+
+        private void create_scene_variables()
+        {
+            var sceneVariables = new SceneVariables
             {
-                RedirectStandardOutput = false,
-                UseShellExecute = false,
-                CreateNoWindow = false
+                n_runs = 10,
+                groups = 2,
+                df_name = "",
+                scene_script_name = "MisradHatahbura",
+                scene_id = "622774b6a27018002fcce857",//need to change to scene id from a list of scenes
+                unique_columns = new Dictionary<string, bool>(){
+                    {"AVGPositionInLaneFrame", false},
+                    {"STDdevFrame", false },
+                    {"AVGPositionInLaneScenario", false},
+                    {"MinPositionInLane", false },
+                    {"MaxPositionInLane", false },
+                    {"PassingPosesInLane", false }
+                }
             };
-            p.Start();*/
+            string fileName = "sceneVariables.json";
+
+            SceneVariables.createFile(sceneVariables, @"C:\Users\rlbsimteamq\Desktop\Analyse\engine", fileName);
+        }
+
+        private void initialize_combobox_items()
+        {
+            Car_choosing_comboBox.Items.Add("Hummer");   //adding items to the dropdown
+            Car_choosing_comboBox.Items.Add("Oshkosh");
+            Car_choosing_comboBox.Items.Add("Sedan");
         }
     }
 }

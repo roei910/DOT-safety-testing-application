@@ -22,11 +22,12 @@ namespace gui.Resources
         public string scene_script_name { get; set; }
         public string scene_id { get; set; }
         public IDictionary<string, bool> unique_columns { get; set; }      
-        public static void createFile(SceneVariables sceneVariables, string fileName)
+        public static void createFile(SceneVariables sceneVariables, string path, string fileName)
         {
 
             string jsonString = JsonConvert.SerializeObject(sceneVariables);
-            File.WriteAllText(fileName, jsonString);
+            Console.WriteLine(path+"\\"+fileName);
+            File.WriteAllText(path+"\\"+fileName, jsonString);
         }  
     }
 }
